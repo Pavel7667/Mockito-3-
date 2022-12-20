@@ -1,10 +1,11 @@
 package org.example.mockito.support;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,13 +14,21 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class TestAnnotation {
 
     @InjectMocks
     private BookService bookService;
     @Mock
     private BookRepo bookRepo;
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
+
+//    @Before
+//    public void beforeEach(){
+//        MockitoAnnotations.initMocks(this);
+//    }
 
 
     @Test
