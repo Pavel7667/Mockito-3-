@@ -1,4 +1,4 @@
-package org.example.mockito.support;
+package org.example.mockito.annotions.support;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
