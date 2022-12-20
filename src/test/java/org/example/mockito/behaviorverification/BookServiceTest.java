@@ -6,9 +6,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDate;
+import java.sql.SQLException;
 
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.doThrow;
 
 @ExtendWith(MockitoExtension.class)
 class BookServiceTest {
@@ -21,8 +21,6 @@ class BookServiceTest {
 
     @Test
     public void testAddBook() {
-        Book book = new Book(null, "Mock3", 550, LocalDate.now());
-        bookService.addBook(book);
-        verify(bookRepo).save(book);
+        doThrow(SQLException.class).when(new Book()).save(book);
     }
 }
